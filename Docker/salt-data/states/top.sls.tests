@@ -1,0 +1,7 @@
+prod:
+  '*':
+    - tree
+
+tests:
+  '*Test*':
+    - go_binary

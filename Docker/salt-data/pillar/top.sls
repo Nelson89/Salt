@@ -1,0 +1,3 @@
+base:
+  '*':
+    - go_version

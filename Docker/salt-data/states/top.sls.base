@@ -1,0 +1,6 @@
+base:
+  '*':
+    - vim
+prod:
+  '*':
+    - less

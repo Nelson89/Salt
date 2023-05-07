@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+    salt-master:
+        container_name: SaltMaster
+        hostname: SaltMaster
+        image: saltmaster
+        networks:
+            salt-network:
+                aliases:
+                    - SaltMaster
+    
+    salt-minion-1:
+        container_name: SaltMinionProdWeb_1
+        hostname: SaltMinionProdWeb_1
+        image: saltminiondebian
+        networks:
+            salt-network:
+                aliases:
+                    - SaltMinionProdWeb_1
+    
+    salt-minion-2:
+        container_name: SaltMinionProdDB_1
+        hostname: SaltMinionProdDB_1
+        image: saltminiondebian
+        networks:
+            salt-network:
+                aliases:
+                    - SaltMinionProdDB_1
+    salt-minion-3:
+        container_name: SaltMinionTestWeb_1
+        hostname: SaltMinionTestWeb_1
+        image: saltminiondebian
+        networks:
+            salt-network:
+                aliases:
+                    - SaltMinionTestWeb_1
+    salt-minion-4:
+        container_name: SaltMinionTestDB_1
+        hostname: SaltMinionTestDB_1
+        image: saltminiondebian
+        networks:
+            salt-network:
+                aliases:
+                    - SaltMinionTestDB_1
+
+networks:
+    salt-network:
+        driver: bridge
